@@ -1,0 +1,8 @@
+{
+  "key": "maths",
+  "name": "Maths Olympiad",
+  "icon": "🔢",
+  "color": "var(--sub-maths)",
+  "description": "Counting, numbers & shapes",
+  "questions": []
+}

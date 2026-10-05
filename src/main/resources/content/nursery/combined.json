@@ -1,0 +1,8 @@
+{
+  "key": "combined",
+  "name": "Combined Olympiad",
+  "icon": "🧩",
+  "color": "var(--sub-combined)",
+  "description": "A mix of English, Maths & Science together",
+  "questions": []
+}

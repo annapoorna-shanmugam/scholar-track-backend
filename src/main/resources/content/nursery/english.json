@@ -1,0 +1,1079 @@
+{
+  "key": "english",
+  "name": "English Olympiad",
+  "icon": "🔤",
+  "color": "var(--sub-english)",
+  "description": "Letters, words & reading",
+  "questions": [
+    {
+      "key": "nursery-english-001",
+      "art": "🚌",
+      "text": "What is the beginning sound of this picture?",
+      "options": [
+        "B",
+        "D"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "key": "nursery-english-002",
+      "art": "🚀",
+      "text": "What is the beginning sound of this picture?",
+      "options": [
+        "R",
+        "T"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "key": "nursery-english-003",
+      "art": "🐘",
+      "text": "The picture is surrounded by the letter \"E\". Which option matches it?",
+      "options": [
+        "T",
+        "E"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "key": "nursery-english-004",
+      "art": "🐍",
+      "text": "The picture is surrounded by the letter \"S\". Which option matches it?",
+      "options": [
+        "S",
+        "U"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "key": "nursery-english-005",
+      "art": "C ➜ ?",
+      "text": "Which letter comes right after C?",
+      "options": [
+        "D",
+        "E"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "key": "nursery-english-006",
+      "art": "P ➜ ?",
+      "text": "Which letter comes right after P?",
+      "options": [
+        "O",
+        "Q"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "key": "nursery-english-007",
+      "art": "🌟",
+      "text": "What is the beginning letter of this picture?",
+      "options": [
+        "S",
+        "P"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "key": "nursery-english-008",
+      "art": "🍎",
+      "text": "What is the beginning letter of this picture?",
+      "options": [
+        "A",
+        "O"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "key": "nursery-english-009",
+      "art": "🏏",
+      "text": "Which letter completes the word \"__at\"?",
+      "options": [
+        "b",
+        "z"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "key": "nursery-english-010",
+      "art": "🍳",
+      "text": "Which letter completes the word \"__an\"?",
+      "options": [
+        "b",
+        "p"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "key": "nursery-english-011",
+      "art": "🥭",
+      "text": "What is the beginning letter of this picture?",
+      "options": [
+        "M",
+        "O"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "key": "nursery-english-012",
+      "art": "🍆",
+      "text": "What is the beginning letter of this picture?",
+      "options": [
+        "P",
+        "B"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "key": "nursery-english-013",
+      "art": "F G _ I",
+      "text": "Which letter is missing?",
+      "options": [
+        "H",
+        "A"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "key": "nursery-english-014",
+      "art": "K _ M N O",
+      "text": "Which letter is missing?",
+      "options": [
+        "L",
+        "M"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "key": "nursery-english-015",
+      "art": "S _ U",
+      "text": "Which letter is missing?",
+      "options": [
+        "W",
+        "T"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "key": "nursery-english-016",
+      "art": "G _ I",
+      "text": "Which letter is missing?",
+      "options": [
+        "A",
+        "H"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "key": "nursery-english-017",
+      "art": "c",
+      "text": "Which option shows this letter in UPPERCASE?",
+      "options": [
+        "C",
+        "p"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "key": "nursery-english-018",
+      "art": "p",
+      "text": "Which option shows this letter in UPPERCASE?",
+      "options": [
+        "P",
+        "a"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "key": "nursery-english-019",
+      "art": "o",
+      "text": "Which option shows this letter in UPPERCASE?",
+      "options": [
+        "A",
+        "O"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "key": "nursery-english-020",
+      "art": "l",
+      "text": "Which option shows this letter in UPPERCASE?",
+      "options": [
+        "L",
+        "M"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "key": "nursery-english-021",
+      "art": "M",
+      "text": "Which picture starts with this letter?",
+      "options": [
+        "🐸 Frog",
+        "🐒 Monkey"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "key": "nursery-english-022",
+      "art": "F",
+      "text": "Which picture starts with this letter?",
+      "options": [
+        "🎂 Cake",
+        "🌸 Flower"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "key": "nursery-english-023",
+      "art": "O",
+      "text": "Which one is the matching lowercase letter?",
+      "options": [
+        "o",
+        "j"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "key": "nursery-english-024",
+      "art": "T",
+      "text": "Which one is the matching lowercase letter?",
+      "options": [
+        "b",
+        "t"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "key": "nursery-english-025",
+      "art": "MNO",
+      "text": "Which one is the matching lowercase letters?",
+      "options": [
+        "mno",
+        "pqr"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "key": "nursery-english-026",
+      "art": "STU",
+      "text": "Which one is the matching lowercase letters?",
+      "options": [
+        "stu",
+        "abc"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "key": "nursery-english-027",
+      "art": "yza",
+      "text": "Which one is the matching UPPERCASE letters?",
+      "options": [
+        "YZA",
+        "DEF"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "key": "nursery-english-028",
+      "art": "jkl",
+      "text": "Which one is the matching UPPERCASE letters?",
+      "options": [
+        "JKL",
+        "XYZ"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "key": "nursery-english-029",
+      "art": "A _ C D",
+      "text": "Which letter fills the blank?",
+      "options": [
+        "B",
+        "D"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "key": "nursery-english-030",
+      "art": "L M N _",
+      "text": "Which letter fills the blank?",
+      "options": [
+        "O",
+        "X"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "key": "nursery-english-031",
+      "art": "🍎",
+      "text": "What is the beginning letter of this picture?",
+      "options": [
+        "A",
+        "B"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "key": "nursery-english-032",
+      "art": "⚽",
+      "text": "What is the beginning letter of this picture?",
+      "options": [
+        "C",
+        "B"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "key": "nursery-english-033",
+      "art": "🐱",
+      "text": "What is the beginning letter of this picture?",
+      "options": [
+        "C",
+        "D"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "key": "nursery-english-034",
+      "art": "🐶",
+      "text": "What is the beginning letter of this picture?",
+      "options": [
+        "E",
+        "D"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "key": "nursery-english-035",
+      "art": "🥚",
+      "text": "What is the beginning letter of this picture?",
+      "options": [
+        "E",
+        "F"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "key": "nursery-english-036",
+      "art": "🐟",
+      "text": "What is the beginning letter of this picture?",
+      "options": [
+        "G",
+        "F"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "key": "nursery-english-037",
+      "art": "🐐",
+      "text": "What is the beginning letter of this picture?",
+      "options": [
+        "G",
+        "H"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "key": "nursery-english-038",
+      "art": "🎩",
+      "text": "What is the beginning letter of this picture?",
+      "options": [
+        "I",
+        "H"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "key": "nursery-english-039",
+      "art": "🍦",
+      "text": "What is the beginning letter of this picture?",
+      "options": [
+        "I",
+        "J"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "key": "nursery-english-040",
+      "art": "🧃",
+      "text": "What is the beginning letter of this picture?",
+      "options": [
+        "K",
+        "J"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "key": "nursery-english-041",
+      "art": "🪁",
+      "text": "What is the beginning letter of this picture?",
+      "options": [
+        "K",
+        "L"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "key": "nursery-english-042",
+      "art": "🦁",
+      "text": "What is the beginning letter of this picture?",
+      "options": [
+        "M",
+        "L"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "key": "nursery-english-043",
+      "art": "🐒",
+      "text": "What is the beginning letter of this picture?",
+      "options": [
+        "M",
+        "N"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "key": "nursery-english-044",
+      "art": "🪺",
+      "text": "What is the beginning letter of this picture?",
+      "options": [
+        "O",
+        "N"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "key": "nursery-english-045",
+      "art": "🍊",
+      "text": "What is the beginning letter of this picture?",
+      "options": [
+        "O",
+        "P"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "key": "nursery-english-046",
+      "art": "🐷",
+      "text": "What is the beginning letter of this picture?",
+      "options": [
+        "Q",
+        "P"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "key": "nursery-english-047",
+      "art": "👸",
+      "text": "What is the beginning letter of this picture?",
+      "options": [
+        "Q",
+        "R"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "key": "nursery-english-048",
+      "art": "🐰",
+      "text": "What is the beginning letter of this picture?",
+      "options": [
+        "S",
+        "R"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "key": "nursery-english-049",
+      "art": "☀️",
+      "text": "What is the beginning letter of this picture?",
+      "options": [
+        "S",
+        "T"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "key": "nursery-english-050",
+      "art": "🐯",
+      "text": "What is the beginning letter of this picture?",
+      "options": [
+        "U",
+        "T"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "key": "nursery-english-051",
+      "art": "☂️",
+      "text": "What is the beginning letter of this picture?",
+      "options": [
+        "U",
+        "V"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "key": "nursery-english-052",
+      "art": "🚐",
+      "text": "What is the beginning letter of this picture?",
+      "options": [
+        "W",
+        "V"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "key": "nursery-english-053",
+      "art": "🍉",
+      "text": "What is the beginning letter of this picture?",
+      "options": [
+        "W",
+        "X"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "key": "nursery-english-054",
+      "art": "🩻",
+      "text": "What is the beginning letter of this picture?",
+      "options": [
+        "Y",
+        "X"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "key": "nursery-english-055",
+      "art": "🪀",
+      "text": "What is the beginning letter of this picture?",
+      "options": [
+        "Y",
+        "Z"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "key": "nursery-english-056",
+      "art": "🦓",
+      "text": "What is the beginning letter of this picture?",
+      "options": [
+        "A",
+        "Z"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "key": "nursery-english-057",
+      "art": "🍎",
+      "text": "Look closely - which option matches the letter \"A\"?",
+      "options": [
+        "D",
+        "A"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "key": "nursery-english-058",
+      "art": "⚽",
+      "text": "Look closely - which option matches the letter \"B\"?",
+      "options": [
+        "B",
+        "E"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "key": "nursery-english-059",
+      "art": "🐱",
+      "text": "Look closely - which option matches the letter \"C\"?",
+      "options": [
+        "F",
+        "C"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "key": "nursery-english-060",
+      "art": "🐶",
+      "text": "Look closely - which option matches the letter \"D\"?",
+      "options": [
+        "D",
+        "G"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "key": "nursery-english-061",
+      "art": "🥚",
+      "text": "Look closely - which option matches the letter \"E\"?",
+      "options": [
+        "H",
+        "E"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "key": "nursery-english-062",
+      "art": "🐟",
+      "text": "Look closely - which option matches the letter \"F\"?",
+      "options": [
+        "F",
+        "I"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "key": "nursery-english-063",
+      "art": "🐐",
+      "text": "Look closely - which option matches the letter \"G\"?",
+      "options": [
+        "J",
+        "G"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "key": "nursery-english-064",
+      "art": "🎩",
+      "text": "Look closely - which option matches the letter \"H\"?",
+      "options": [
+        "H",
+        "K"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "key": "nursery-english-065",
+      "art": "🍦",
+      "text": "Look closely - which option matches the letter \"I\"?",
+      "options": [
+        "L",
+        "I"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "key": "nursery-english-066",
+      "art": "🧃",
+      "text": "Look closely - which option matches the letter \"J\"?",
+      "options": [
+        "J",
+        "M"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "key": "nursery-english-067",
+      "art": "🪁",
+      "text": "Look closely - which option matches the letter \"K\"?",
+      "options": [
+        "N",
+        "K"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "key": "nursery-english-068",
+      "art": "🦁",
+      "text": "Look closely - which option matches the letter \"L\"?",
+      "options": [
+        "L",
+        "O"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "key": "nursery-english-069",
+      "art": "🐒",
+      "text": "Look closely - which option matches the letter \"M\"?",
+      "options": [
+        "P",
+        "M"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "key": "nursery-english-070",
+      "art": "🪺",
+      "text": "Look closely - which option matches the letter \"N\"?",
+      "options": [
+        "N",
+        "Q"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "key": "nursery-english-071",
+      "art": "🍊",
+      "text": "Look closely - which option matches the letter \"O\"?",
+      "options": [
+        "R",
+        "O"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "key": "nursery-english-072",
+      "art": "🐷",
+      "text": "Look closely - which option matches the letter \"P\"?",
+      "options": [
+        "P",
+        "S"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "key": "nursery-english-073",
+      "art": "👸",
+      "text": "Look closely - which option matches the letter \"Q\"?",
+      "options": [
+        "T",
+        "Q"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "key": "nursery-english-074",
+      "art": "🐰",
+      "text": "Look closely - which option matches the letter \"R\"?",
+      "options": [
+        "R",
+        "U"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "key": "nursery-english-075",
+      "art": "☀️",
+      "text": "Look closely - which option matches the letter \"S\"?",
+      "options": [
+        "V",
+        "S"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "key": "nursery-english-076",
+      "art": "🐯",
+      "text": "Look closely - which option matches the letter \"T\"?",
+      "options": [
+        "T",
+        "W"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "key": "nursery-english-077",
+      "art": "☂️",
+      "text": "Look closely - which option matches the letter \"U\"?",
+      "options": [
+        "X",
+        "U"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "key": "nursery-english-078",
+      "art": "🚐",
+      "text": "Look closely - which option matches the letter \"V\"?",
+      "options": [
+        "V",
+        "Y"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "key": "nursery-english-079",
+      "art": "🍉",
+      "text": "Look closely - which option matches the letter \"W\"?",
+      "options": [
+        "Z",
+        "W"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "key": "nursery-english-080",
+      "art": "🩻",
+      "text": "Look closely - which option matches the letter \"X\"?",
+      "options": [
+        "X",
+        "A"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "key": "nursery-english-081",
+      "art": "🪀",
+      "text": "Look closely - which option matches the letter \"Y\"?",
+      "options": [
+        "B",
+        "Y"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "key": "nursery-english-082",
+      "art": "🦓",
+      "text": "Look closely - which option matches the letter \"Z\"?",
+      "options": [
+        "Z",
+        "C"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "key": "nursery-english-083",
+      "art": "A ➜ ?",
+      "text": "Which letter comes right after A?",
+      "options": [
+        "B",
+        "C"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "key": "nursery-english-084",
+      "art": "B ➜ ?",
+      "text": "Which letter comes right after B?",
+      "options": [
+        "D",
+        "C"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "key": "nursery-english-085",
+      "art": "C ➜ ?",
+      "text": "Which letter comes right after C?",
+      "options": [
+        "D",
+        "E"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "key": "nursery-english-086",
+      "art": "D ➜ ?",
+      "text": "Which letter comes right after D?",
+      "options": [
+        "F",
+        "E"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "key": "nursery-english-087",
+      "art": "E ➜ ?",
+      "text": "Which letter comes right after E?",
+      "options": [
+        "F",
+        "G"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "key": "nursery-english-088",
+      "art": "F ➜ ?",
+      "text": "Which letter comes right after F?",
+      "options": [
+        "H",
+        "G"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "key": "nursery-english-089",
+      "art": "G ➜ ?",
+      "text": "Which letter comes right after G?",
+      "options": [
+        "H",
+        "I"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "key": "nursery-english-090",
+      "art": "H ➜ ?",
+      "text": "Which letter comes right after H?",
+      "options": [
+        "J",
+        "I"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "key": "nursery-english-091",
+      "art": "I ➜ ?",
+      "text": "Which letter comes right after I?",
+      "options": [
+        "J",
+        "K"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "key": "nursery-english-092",
+      "art": "J ➜ ?",
+      "text": "Which letter comes right after J?",
+      "options": [
+        "L",
+        "K"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "key": "nursery-english-093",
+      "art": "K ➜ ?",
+      "text": "Which letter comes right after K?",
+      "options": [
+        "L",
+        "M"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "key": "nursery-english-094",
+      "art": "L ➜ ?",
+      "text": "Which letter comes right after L?",
+      "options": [
+        "N",
+        "M"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "key": "nursery-english-095",
+      "art": "M ➜ ?",
+      "text": "Which letter comes right after M?",
+      "options": [
+        "N",
+        "O"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "key": "nursery-english-096",
+      "art": "N ➜ ?",
+      "text": "Which letter comes right after N?",
+      "options": [
+        "P",
+        "O"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "key": "nursery-english-097",
+      "art": "O ➜ ?",
+      "text": "Which letter comes right after O?",
+      "options": [
+        "P",
+        "Q"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "key": "nursery-english-098",
+      "art": "P ➜ ?",
+      "text": "Which letter comes right after P?",
+      "options": [
+        "R",
+        "Q"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "key": "nursery-english-099",
+      "art": "Q ➜ ?",
+      "text": "Which letter comes right after Q?",
+      "options": [
+        "R",
+        "S"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "key": "nursery-english-100",
+      "art": "R ➜ ?",
+      "text": "Which letter comes right after R?",
+      "options": [
+        "T",
+        "S"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "key": "nursery-english-101",
+      "art": "S ➜ ?",
+      "text": "Which letter comes right after S?",
+      "options": [
+        "T",
+        "U"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "key": "nursery-english-102",
+      "art": "T ➜ ?",
+      "text": "Which letter comes right after T?",
+      "options": [
+        "V",
+        "U"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "key": "nursery-english-103",
+      "art": "U ➜ ?",
+      "text": "Which letter comes right after U?",
+      "options": [
+        "V",
+        "W"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "key": "nursery-english-104",
+      "art": "V ➜ ?",
+      "text": "Which letter comes right after V?",
+      "options": [
+        "X",
+        "W"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "key": "nursery-english-105",
+      "art": "W ➜ ?",
+      "text": "Which letter comes right after W?",
+      "options": [
+        "X",
+        "Y"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "key": "nursery-english-106",
+      "art": "X ➜ ?",
+      "text": "Which letter comes right after X?",
+      "options": [
+        "Z",
+        "Y"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "key": "nursery-english-107",
+      "art": "Y ➜ ?",
+      "text": "Which letter comes right after Y?",
+      "options": [
+        "Z",
+        "X"
+      ],
+      "correctIndex": 0
+    }
+  ]
+}

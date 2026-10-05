@@ -1,0 +1,8 @@
+{
+  "key": "science",
+  "name": "Science Olympiad",
+  "icon": "🔬",
+  "color": "var(--sub-science)",
+  "description": "Plants, animals & our world",
+  "questions": []
+}

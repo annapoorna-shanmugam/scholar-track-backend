@@ -1,0 +1,1491 @@
+<title>Scholar Track</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Scholar Track">
+<meta name="theme-color" content="#5B4FE9">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F5F3FC;
+    --surface:#FFFFFF;
+    --surface-2:#FBFAFF;
+    --ink:#241F3D;
+    --ink-soft:#6B6690;
+    --ink-faint:#9C97BC;
+    --line:#E5E1F5;
+    --primary:#5B4FE9;
+    --primary-ink:#FFFFFF;
+    --primary-soft: color-mix(in srgb, var(--primary) 12%, var(--surface));
+    --primary-soft-strong: color-mix(in srgb, var(--primary) 22%, var(--surface));
+    --sidebar-bg:#241D4D;
+    --sidebar-ink:#DAD5F7;
+    --sidebar-ink-dim:#8E86BE;
+    --sidebar-active-bg:#372C6E;
+    --good:#1FA97A;
+    --bad:#E5484D;
+    --shadow: 0 1px 2px rgba(36,31,61,0.06), 0 8px 24px -12px rgba(36,31,61,0.18);
+
+    --sub-maths:#FF6B57;
+    --sub-english:#1FB6A6;
+    --sub-science:#F0A020;
+    --sub-gk:#4C8DFF;
+    --sub-hindi:#E85D9A;
+    --sub-phonics:#68B93E;
+    --sub-cyber:#6C5CE7;
+    --sub-french:#FF9F1C;
+    --sub-combined:#8B5CF6;
+  }
+
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#161226;
+      --surface:#1F1A38;
+      --surface-2:#241E42;
+      --ink:#F1EEFB;
+      --ink-soft:#B6AFDA;
+      --ink-faint:#7C76A3;
+      --line:#332C57;
+      --primary:#8B7FFF;
+      --primary-ink:#161226;
+      --sidebar-bg:#120E22;
+      --sidebar-ink:#DDD8F9;
+      --sidebar-ink-dim:#867EAE;
+      --sidebar-active-bg:#2B2352;
+      --good:#3FCB97;
+      --bad:#FF6B6F;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 10px 30px -12px rgba(0,0,0,0.55);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#161226;
+    --surface:#1F1A38;
+    --surface-2:#241E42;
+    --ink:#F1EEFB;
+    --ink-soft:#B6AFDA;
+    --ink-faint:#7C76A3;
+    --line:#332C57;
+    --primary:#8B7FFF;
+    --primary-ink:#161226;
+    --sidebar-bg:#120E22;
+    --sidebar-ink:#DDD8F9;
+    --sidebar-ink-dim:#867EAE;
+    --sidebar-active-bg:#2B2352;
+    --good:#3FCB97;
+    --bad:#FF6B6F;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 10px 30px -12px rgba(0,0,0,0.55);
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Nunito', system-ui, sans-serif;
+    min-height:100vh;
+    display:flex;
+    align-items:flex-start;
+  }
+  h1,h2,h3,.brand-name,.btn-lg{font-family:'Baloo 2','Nunito',system-ui,sans-serif;}
+  h1,h2,h3{text-wrap:balance; margin:0;}
+  button{font-family:inherit;}
+  a{color:inherit;}
+
+  button:focus-visible, [tabindex]:focus-visible, .grade-card:focus-visible, .subject-card:focus-visible, .option:focus-visible{
+    outline:3px solid var(--primary);
+    outline-offset:2px;
+  }
+
+  /* ---------- layout ---------- */
+  .app{display:flex; width:100%; min-height:100vh;}
+
+  .sidebar{
+    width:236px;
+    flex:0 0 236px;
+    background:var(--sidebar-bg);
+    color:var(--sidebar-ink);
+    min-height:100vh;
+    padding:22px 16px;
+    display:flex;
+    flex-direction:column;
+    gap:22px;
+    position:sticky;
+    top:0;
+  }
+  .brand{display:flex; align-items:center; gap:8px; padding:4px 8px 8px;}
+  .brand-mark{font-size:26px; line-height:1; flex:0 0 auto;}
+  .brand-text{min-width:0; flex:1 1 auto;}
+  .brand-name{font-size:19px; font-weight:700; color:#fff; letter-spacing:0.2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+  .brand-tag{font-size:11.5px; color:var(--sidebar-ink-dim); margin-top:1px; letter-spacing:0.3px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+
+  .nav{display:flex; flex-direction:column; gap:3px;}
+  .nav-item{
+    display:flex; align-items:center; gap:11px;
+    padding:10px 12px;
+    border-radius:12px;
+    background:none; border:none; color:var(--sidebar-ink);
+    font-size:14.5px; font-weight:600;
+    cursor:pointer;
+    text-align:left;
+    width:100%;
+    transition:background .15s ease, color .15s ease;
+  }
+  .nav-item .ic{font-size:17px; width:20px; text-align:center;}
+  .nav-item:hover{background:rgba(255,255,255,0.06);}
+  .nav-item.active{background:var(--sidebar-active-bg); color:#fff;}
+
+  .sidebar-foot-wrap{margin-top:auto; position:relative;}
+  .sidebar-foot{
+    width:100%;
+    display:flex; align-items:center; gap:10px;
+    padding:10px 10px;
+    border-radius:12px;
+    background:rgba(255,255,255,0.05);
+    border:none; cursor:pointer; text-align:left; font:inherit; color:inherit;
+    transition:background .15s ease;
+  }
+  .sidebar-foot:hover{background:rgba(255,255,255,0.1);}
+  .account-menu{
+    position:absolute; left:0; bottom:calc(100% + 8px); min-width:190px;
+    background:var(--surface); border:1px solid var(--line); border-radius:14px;
+    box-shadow:var(--shadow); padding:8px; z-index:40;
+  }
+  .account-menu-user{
+    font-size:11.5px; color:var(--ink-soft);
+    padding:6px 8px 10px; margin-bottom:4px;
+    border-bottom:1px solid var(--line);
+    word-break:break-word;
+  }
+  .account-menu-user strong{color:var(--ink);}
+  .account-menu-item{
+    width:100%; display:flex; align-items:center; gap:8px;
+    background:none; border:none; text-align:left; cursor:pointer;
+    padding:9px 8px; border-radius:9px; font-weight:700; font-size:13px; color:var(--bad);
+    font-family:inherit;
+  }
+  .account-menu-item:hover{background:color-mix(in srgb, var(--bad) 10%, var(--surface-2));}
+  .avatar{
+    width:32px; height:32px; border-radius:50%;
+    background:linear-gradient(135deg, var(--primary), #A78BFA);
+    display:flex; align-items:center; justify-content:center;
+    font-size:15px; flex:0 0 32px;
+  }
+  .sidebar-foot .who{font-size:12.5px; font-weight:700; color:#fff;}
+  .sidebar-foot .role{font-size:10.5px; color:var(--sidebar-ink-dim);}
+
+  .main{
+    flex:1;
+    min-width:0;
+    padding:34px 40px 60px;
+  }
+  .stage{max-width:920px; margin:0 auto;}
+
+  .crumbs{
+    display:flex; align-items:center; flex-wrap:wrap; gap:6px;
+    font-size:13px; font-weight:700; color:var(--ink-faint);
+    margin-bottom:14px;
+    min-height:18px;
+  }
+  .crumbs .sep{color:var(--ink-faint); opacity:.6;}
+  .crumbs .current{color:var(--primary);}
+  .crumbs button{background:none;border:none;color:inherit;font:inherit;font-weight:700;cursor:pointer;padding:0;}
+  .crumbs button:hover{color:var(--primary); text-decoration:underline;}
+
+  .page-head{margin-bottom:22px;}
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:6px;
+    font-size:12px; font-weight:800; letter-spacing:.5px; text-transform:uppercase;
+    color:var(--primary);
+    background:var(--primary-soft);
+    padding:5px 11px; border-radius:999px;
+    margin-bottom:10px;
+  }
+  .page-head h1{font-size:27px; font-weight:700; color:var(--ink);}
+  .page-head p{margin:8px 0 0; color:var(--ink-soft); font-size:14.5px; max-width:62ch; line-height:1.55;}
+
+  [hidden]{display:none !important;}
+
+  /* ---------- home ---------- */
+  .hero{
+    background:linear-gradient(135deg, var(--primary-soft), var(--surface) 70%);
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:30px 32px;
+    display:flex; align-items:center; justify-content:space-between; gap:24px;
+    box-shadow:var(--shadow);
+    margin-bottom:26px;
+  }
+  .hero-text h1{font-size:24px; margin-bottom:8px;}
+  .hero-text p{color:var(--ink-soft); font-size:14.5px; max-width:44ch; line-height:1.55; margin:0 0 16px;}
+  .hero-emoji{font-size:64px; flex:0 0 auto; filter:drop-shadow(0 8px 16px rgba(91,79,233,0.25));}
+
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    border-radius:12px; border:none; cursor:pointer;
+    font-weight:800; font-size:14px;
+    padding:11px 18px;
+    transition:transform .12s ease, box-shadow .12s ease, background .12s ease;
+  }
+  .btn:active{transform:translateY(1px);}
+  .btn-primary{background:var(--primary); color:var(--primary-ink); box-shadow:0 6px 16px -6px color-mix(in srgb, var(--primary) 60%, transparent);}
+  .btn-primary:hover{box-shadow:0 8px 20px -6px color-mix(in srgb, var(--primary) 70%, transparent);}
+  .btn-ghost{background:var(--surface-2); color:var(--ink); border:1px solid var(--line);}
+  .btn-ghost:hover{border-color:var(--primary);}
+  .btn-danger{background:none; border:1px solid color-mix(in srgb, var(--bad) 45%, var(--line)); color:var(--bad);}
+  .btn-danger:hover{background:color-mix(in srgb, var(--bad) 10%, var(--surface));}
+
+  .stat-row{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:8px;}
+  .stat-tile{
+    background:var(--surface); border:1px solid var(--line); border-radius:16px;
+    padding:16px 18px; box-shadow:var(--shadow);
+  }
+  button.stat-tile{cursor:pointer; text-align:left; font-family:inherit; transition:transform .12s ease, border-color .12s ease;}
+  button.stat-tile:hover{transform:translateY(-2px); border-color:var(--primary);}
+  .stat-tile .n{font-family:'Baloo 2'; font-size:24px; font-weight:700; font-variant-numeric:tabular-nums;}
+  .stat-tile .l{font-size:12px; color:var(--ink-soft); font-weight:700; margin-top:2px;}
+  .stat-note{font-size:11.5px; color:var(--ink-faint); margin-top:14px;}
+
+  /* ---------- grade cards ---------- */
+  .grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(196px, 1fr)); gap:16px;}
+
+  .grade-card{
+    position:relative;
+    background:var(--surface); border:1px solid var(--line); border-radius:18px;
+    padding:20px 18px; text-align:left; cursor:pointer;
+    box-shadow:var(--shadow);
+    transition:transform .15s ease, border-color .15s ease;
+    display:flex; flex-direction:column; gap:10px;
+  }
+  .grade-card:hover{transform:translateY(-3px); border-color:var(--primary);}
+  .grade-badge{
+    position:absolute; top:-9px; right:14px;
+    background:var(--primary); color:var(--primary-ink);
+    font-size:10px; font-weight:800; letter-spacing:.3px;
+    padding:4px 9px; border-radius:999px;
+    box-shadow:0 4px 10px -3px color-mix(in srgb, var(--primary) 70%, transparent);
+  }
+  .grade-glyph{
+    width:46px; height:46px; border-radius:13px;
+    background:var(--primary-soft-strong); color:var(--primary);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Baloo 2'; font-weight:700; font-size:17px;
+  }
+  .grade-card h3{font-size:16.5px; font-weight:700;}
+  .grade-card .age{font-size:12px; color:var(--ink-soft); font-weight:700;}
+  .grade-card .sub-count{font-size:11.5px; color:var(--ink-faint); margin-top:auto;}
+
+  /* ---------- subject cards ---------- */
+  .subject-card{
+    background:var(--surface); border:1px solid var(--line); border-radius:18px;
+    padding:18px; text-align:left; cursor:pointer;
+    box-shadow:var(--shadow);
+    transition:transform .15s ease, border-color .15s ease;
+    display:flex; flex-direction:column; gap:12px;
+  }
+  .subject-card:hover{transform:translateY(-3px); border-color:var(--card-color, var(--primary));}
+  .subject-icon{
+    width:44px; height:44px; border-radius:12px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:21px;
+    background: color-mix(in srgb, var(--card-color) 16%, var(--surface));
+    border:1px solid color-mix(in srgb, var(--card-color) 30%, var(--surface));
+  }
+  .subject-card h3{font-size:15.5px; font-weight:700;}
+  .subject-card p{font-size:12.5px; color:var(--ink-soft); margin:2px 0 0; line-height:1.45;}
+  .subject-foot{display:flex; align-items:center; justify-content:space-between; margin-top:2px;}
+  .subject-foot .tag{
+    font-size:10.5px; font-weight:800; color:var(--card-color);
+    background: color-mix(in srgb, var(--card-color) 14%, var(--surface));
+    padding:3px 8px; border-radius:999px;
+  }
+  .subject-foot .go{font-size:12px; font-weight:800; color:var(--ink-faint);}
+  .subject-card:hover .go{color:var(--card-color);}
+
+  /* ---------- demo ---------- */
+  .demo-head{
+    display:flex; align-items:center; gap:12px; margin-bottom:20px; flex-wrap:wrap;
+  }
+  .demo-icon{
+    width:48px; height:48px; border-radius:13px;
+    display:flex; align-items:center; justify-content:center; font-size:23px;
+    background:color-mix(in srgb, var(--card-color) 16%, var(--surface));
+    border:1px solid color-mix(in srgb, var(--card-color) 30%, var(--surface));
+  }
+  .demo-head h1{font-size:21px;}
+  .demo-head .ctx{font-size:12.5px; color:var(--ink-soft); font-weight:700;}
+
+  .progress-row{display:flex; align-items:center; gap:10px; margin-bottom:14px;}
+  .dots{display:flex; gap:6px;}
+  .dot{width:22px; height:6px; border-radius:999px; background:var(--line);}
+  .dot.filled{background:var(--card-color, var(--primary));}
+  .dot.current{background:var(--card-color, var(--primary)); opacity:.55;}
+  .progress-note{font-size:11.5px; color:var(--ink-faint);}
+
+  .timer-wrap{margin-bottom:18px;}
+  .timer-track{height:6px; background:var(--line); border-radius:999px; overflow:hidden;}
+  .timer-fill{height:100%; width:100%; background:var(--card-color, var(--primary)); border-radius:999px;}
+  .timer-label{font-size:11px; color:var(--ink-faint); margin-top:4px; text-align:right; font-variant-numeric:tabular-nums;}
+
+  .q-card{
+    background:var(--surface); border:1px solid var(--line); border-radius:22px;
+    padding:30px 32px; box-shadow:var(--shadow);
+  }
+  .q-text{font-family:'Baloo 2'; font-size:19px; font-weight:600; text-align:left; margin-bottom:22px; text-wrap:balance;}
+
+  .q-body{display:flex; align-items:stretch; gap:22px;}
+  .options{flex:1 1 auto; min-width:0; display:flex; flex-direction:column; justify-content:center; gap:14px;}
+  .option{
+    display:flex; align-items:stretch;
+    background:var(--surface-2); border:2px solid var(--line); border-radius:12px;
+    overflow:hidden; cursor:pointer; color:var(--ink);
+    transition:border-color .12s ease, transform .1s ease;
+  }
+  .option:hover:not(.locked){border-color:var(--card-color, var(--primary)); transform:translateY(-1px);}
+  .option .num{
+    flex:0 0 40px; display:flex; align-items:center; justify-content:center;
+    font-weight:800; font-size:15px; color:#fff;
+    background:var(--card-color, var(--primary));
+  }
+  .option .label{flex:1; padding:12px 16px; font-size:16px; font-weight:700; display:flex; align-items:center;}
+  .option .mark{margin-left:auto; padding-right:14px; font-size:16px; opacity:0; align-self:center;}
+  .option.correct{border-color:var(--good);}
+  .option.correct .num{background:var(--good);}
+  .option.correct .mark{opacity:1; color:var(--good);}
+  .option.wrong{border-color:var(--bad);}
+  .option.wrong .num{background:var(--bad);}
+  .option.wrong .mark{opacity:1; color:var(--bad);}
+  .option.locked{cursor:default;}
+
+  .q-art-box{
+    flex:0 0 260px; min-height:220px;
+    border:1px solid var(--line); border-radius:18px; background:var(--surface-2);
+    display:flex; align-items:center; justify-content:center; padding:16px;
+  }
+  .q-art{font-size:96px; font-weight:800; text-align:center; line-height:1.2; word-break:break-word;}
+  .q-art.mid{font-size:56px;}
+  .q-art.small{font-size:36px;}
+
+  .feedback{
+    margin-top:18px; font-size:13.5px; font-weight:700;
+    display:flex; align-items:center; gap:8px; min-height:20px;
+  }
+  .feedback.good{color:var(--good);}
+  .feedback.bad{color:var(--bad);}
+
+  .q-foot{display:flex; align-items:center; justify-content:space-between; margin-top:22px; gap:12px; flex-wrap:wrap;}
+
+  .complete-card{
+    background:var(--surface); border:1px solid var(--line); border-radius:22px;
+    padding:38px 32px; text-align:center; box-shadow:var(--shadow);
+  }
+  .complete-emoji{font-size:56px; margin-bottom:10px;}
+  @media (prefers-reduced-motion:no-preference){
+    .complete-emoji{animation:pop .5s cubic-bezier(.34,1.56,.64,1);}
+  }
+  @keyframes pop{0%{transform:scale(.5); opacity:0;}100%{transform:scale(1); opacity:1;}}
+  .complete-card h2{font-size:21px; margin-bottom:6px;}
+  .complete-card p{color:var(--ink-soft); font-size:13.5px; margin:0 0 6px;}
+  .score{
+    font-family:'Baloo 2'; font-size:15px; font-weight:700; color:var(--primary);
+    background:var(--primary-soft); display:inline-flex; padding:6px 14px; border-radius:999px;
+    margin:10px 0 22px;
+  }
+  .complete-actions{display:flex; gap:10px; justify-content:center; flex-wrap:wrap;}
+
+  .back-row{margin-bottom:14px;}
+  .btn-back{background:none;border:none;color:var(--ink-soft);font-weight:700;font-size:13px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;padding:6px 4px;}
+  .btn-back:hover{color:var(--primary);}
+
+  /* ---------- progress ---------- */
+  .section-title{font-size:15px; font-weight:800; margin:28px 0 12px;}
+  .section-title:first-of-type{margin-top:0;}
+
+  .subject-progress-list{display:flex; flex-direction:column; gap:10px;}
+  .subject-progress-row{
+    display:flex; align-items:center; gap:14px;
+    background:var(--surface); border:1px solid var(--line); border-radius:14px;
+    padding:14px 16px; box-shadow:var(--shadow);
+  }
+  .sp-main{flex:1; min-width:0;}
+  .sp-main .name-row{display:flex; align-items:center; justify-content:space-between; gap:8px; font-weight:800; font-size:13.5px;}
+  .sp-main .name-row .pct{font-variant-numeric:tabular-nums; color:var(--card-color);}
+  .sp-empty{color:var(--ink-faint); font-weight:700; font-size:12px;}
+  .bar-track{height:8px; border-radius:999px; background:var(--line); margin-top:7px; overflow:hidden;}
+  .bar-fill{height:100%; border-radius:999px; background:var(--card-color);}
+  .sp-meta{font-size:11.5px; color:var(--ink-faint); margin-top:4px;}
+
+  .activity-list{display:flex; flex-direction:column; gap:8px;}
+  .activity-row{display:flex; align-items:center; gap:12px; padding:10px 12px; border-radius:12px; background:var(--surface-2); border:1px solid var(--line);}
+  .activity-row .a-icon{
+    width:32px; height:32px; border-radius:10px; flex:0 0 auto;
+    display:flex; align-items:center; justify-content:center; font-size:15px;
+    background:color-mix(in srgb, var(--card-color) 16%, var(--surface));
+  }
+  .activity-row .a-main{flex:1; min-width:0;}
+  .activity-row .a-title{font-size:13px; font-weight:800;}
+  .activity-row .a-sub{font-size:11.5px; color:var(--ink-faint);}
+  .activity-row .a-score{font-weight:800; font-size:13px; font-variant-numeric:tabular-nums; flex:0 0 auto;}
+  .activity-row .a-score.good{color:var(--good);}
+  .activity-row .a-score.bad{color:var(--bad);}
+  .activity-row .a-time{font-size:11px; color:var(--ink-faint); flex:0 0 auto; width:76px; text-align:right;}
+  .empty-note{color:var(--ink-faint); font-size:13px; padding:6px 2px;}
+
+  .badge-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:12px;}
+  .badge-tile{background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:16px; text-align:center; box-shadow:var(--shadow);}
+  .badge-tile .b-icon{font-size:28px; margin-bottom:6px;}
+  .badge-tile .b-name{font-size:12.5px; font-weight:800;}
+  .badge-tile.locked{opacity:.4;}
+  .badge-tile .b-status{font-size:10px; font-weight:800; color:var(--ink-faint); margin-top:3px; text-transform:uppercase; letter-spacing:.3px;}
+  .badge-tile.earned .b-status{color:var(--good);}
+
+  /* ---------- settings ---------- */
+  .settings-card{
+    background:var(--surface); border:1px solid var(--line); border-radius:18px;
+    padding:22px 24px; box-shadow:var(--shadow); margin-bottom:18px;
+  }
+  .settings-card h3{font-size:15px; margin-bottom:2px;}
+  .settings-card .hint{font-size:12px; color:var(--ink-soft); margin-bottom:16px; line-height:1.5;}
+  .field{display:flex; flex-direction:column; gap:6px; margin-bottom:14px;}
+  .field:last-child{margin-bottom:0;}
+  .field label{font-size:12px; font-weight:800; color:var(--ink-soft); text-transform:uppercase; letter-spacing:.3px;}
+  .field input[type=text], .field input[type=password], .field select{
+    padding:10px 12px; border-radius:10px; border:1px solid var(--line);
+    background:var(--surface-2); color:var(--ink); font-size:14px; font-family:inherit;
+  }
+  .field input:focus, .field select:focus{outline:2px solid var(--primary); outline-offset:1px; border-color:var(--primary);}
+
+  .segmented{display:flex; background:var(--surface-2); border:1px solid var(--line); border-radius:12px; padding:4px; gap:4px;}
+  .segmented button{flex:1; border:none; background:none; padding:8px 10px; border-radius:9px; font-weight:800; font-size:13px; color:var(--ink-soft); cursor:pointer;}
+  .segmented button.active{background:var(--primary); color:var(--primary-ink);}
+
+  .switch-row{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 0; border-top:1px solid var(--line);}
+  .switch-row:first-child{border-top:none; padding-top:0;}
+  .switch-row .label-main{font-weight:800; font-size:14px;}
+  .switch-row .label-sub{font-size:12px; color:var(--ink-soft); margin-top:2px;}
+  .switch{position:relative; width:44px; height:26px; border-radius:999px; background:var(--line); border:none; cursor:pointer; flex:0 0 auto;}
+  .switch::after{content:''; position:absolute; top:3px; left:3px; width:20px; height:20px; border-radius:50%; background:#fff; transition:transform .15s ease; box-shadow:0 1px 3px rgba(0,0,0,.3);}
+  .switch.on{background:var(--primary);}
+  .switch.on::after{transform:translateX(18px);}
+
+  /* ---------- auth ---------- */
+  .auth-wrap{
+    width:100%; min-height:100vh;
+    display:flex; align-items:center; justify-content:center;
+    padding:24px;
+  }
+  .auth-card{
+    width:100%; max-width:360px;
+    background:var(--surface); border:1px solid var(--line); border-radius:20px;
+    padding:28px 26px; box-shadow:var(--shadow);
+  }
+  .auth-brand{display:flex; align-items:center; gap:10px; margin-bottom:20px;}
+  .auth-brand .brand-name{font-size:19px; font-weight:700;}
+  .auth-brand .brand-tag{font-size:11.5px; letter-spacing:.3px;}
+  .auth-card .segmented{margin-bottom:18px;}
+  .auth-hint{font-size:11.5px; color:var(--ink-faint); margin-top:2px; line-height:1.4;}
+  .auth-error{
+    font-size:12.5px; font-weight:700; color:var(--bad);
+    background:color-mix(in srgb, var(--bad) 10%, var(--surface));
+    border:1px solid color-mix(in srgb, var(--bad) 35%, var(--line));
+    border-radius:10px; padding:9px 12px; margin-bottom:14px;
+  }
+  .auth-submit{width:100%; justify-content:center; margin-top:4px;}
+  .field input:invalid{box-shadow:none;}
+
+  /* ---------- toast ---------- */
+  .toast{
+    position:fixed; left:50%; bottom:26px; transform:translateX(-50%) translateY(20px);
+    background:var(--sidebar-bg); color:#fff;
+    font-size:13px; font-weight:700;
+    padding:11px 18px; border-radius:12px;
+    box-shadow:0 10px 30px -8px rgba(0,0,0,0.4);
+    opacity:0; pointer-events:none; transition:opacity .2s ease, transform .2s ease;
+    z-index:50;
+  }
+  .toast.show{opacity:1; transform:translateX(-50%) translateY(0);}
+
+  /* Sidebar always stays on the left, at every width — on narrow screens it
+     narrows to an icon-only rail instead of moving to the top. */
+  @media (max-width: 700px){
+    .sidebar{
+      width:74px; flex:0 0 74px; padding:18px 8px; gap:16px;
+    }
+    .brand{justify-content:center; padding:0;}
+    .brand-name, .brand-tag{display:none;}
+    .sidebar-toggle{display:none;}
+    .nav-item{justify-content:center; padding:11px 0;}
+    .nav-item .label{display:none;}
+    .sidebar-foot{justify-content:center; padding:8px 0;}
+    .sidebar-foot .who, .sidebar-foot .role{display:none;}
+    .main{padding:22px 18px 50px;}
+    .hero{flex-direction:column; align-items:flex-start;}
+    .q-body{flex-direction:column-reverse;}
+    .q-art-box{flex:0 0 auto; min-height:0; padding:14px 0;}
+    .q-art{font-size:72px;}
+    .q-art.mid{font-size:48px;}
+    .q-art.small{font-size:32px;}
+    .stat-row{grid-template-columns:1fr 1fr 1fr;}
+  }
+
+  /* ---------- sidebar collapse ---------- */
+  .sidebar-toggle{
+    margin-left:auto; flex:0 0 auto;
+    width:30px; height:30px; border-radius:9px;
+    background:rgba(255,255,255,0.08); border:none; color:var(--sidebar-ink);
+    display:flex; align-items:center; justify-content:center;
+    font-size:14px; cursor:pointer;
+    transition:background .15s ease;
+  }
+  .sidebar-toggle:hover{background:rgba(255,255,255,0.16);}
+
+  .sidebar-reopen-btn{
+    position:fixed; top:18px; left:18px; z-index:55;
+    width:38px; height:38px; border-radius:12px;
+    background:var(--surface); border:1px solid var(--line); color:var(--ink);
+    box-shadow:var(--shadow);
+    display:flex; align-items:center; justify-content:center;
+    font-size:15px; cursor:pointer;
+    transition:border-color .15s ease, transform .12s ease;
+  }
+  .sidebar-reopen-btn:hover{border-color:var(--primary); transform:translateY(-1px);}
+</style>
+
+<div class="auth-wrap" id="authScreen" hidden>
+  <div class="auth-card">
+    <div class="auth-brand">
+      <div class="brand-mark">🏆</div>
+      <div>
+        <div class="brand-name">Scholar Track</div>
+        <div class="brand-tag">K-12 Exam Prep</div>
+      </div>
+    </div>
+
+    <div class="segmented" id="authModeSwitch">
+      <button type="button" data-mode="login" class="active">Sign in</button>
+      <button type="button" data-mode="register">Create account</button>
+    </div>
+
+    <form id="authForm" novalidate>
+      <div class="field">
+        <label for="authUsername">Username</label>
+        <input type="text" id="authUsername" autocomplete="username" maxlength="24" required />
+      </div>
+      <div class="field">
+        <label for="authPassword">Password</label>
+        <input type="password" id="authPassword" autocomplete="current-password" minlength="4" maxlength="12" required />
+        <div class="auth-hint">4–12 characters. Letters, numbers and special characters are all fine — just no spaces.</div>
+      </div>
+      <div class="auth-error" id="authError" hidden></div>
+      <button type="submit" class="btn btn-primary auth-submit" id="authSubmitBtn">Sign in</button>
+    </form>
+  </div>
+</div>
+
+<button class="sidebar-reopen-btn" id="sidebarReopenBtn" type="button" title="Show menu" aria-label="Show menu" hidden>☰</button>
+
+<div class="app" id="appRoot" hidden>
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="brand-mark">🏆</div>
+      <div class="brand-text">
+        <div class="brand-name">Scholar Track</div>
+        <div class="brand-tag">K-12 Exam Prep</div>
+      </div>
+      <button class="sidebar-toggle" id="sidebarCollapseBtn" type="button" title="Hide menu" aria-label="Hide menu">☰</button>
+    </div>
+
+    <nav class="nav">
+      <button class="nav-item" data-nav="home"><span class="ic">🏠</span><span class="label">Home</span></button>
+      <button class="nav-item" data-nav="demo"><span class="ic">🎯</span><span class="label">Olympiad Demo</span></button>
+      <button class="nav-item" data-nav="progress"><span class="ic">📈</span><span class="label">Progress</span></button>
+      <button class="nav-item" data-nav="settings"><span class="ic">⚙️</span><span class="label">Settings</span></button>
+    </nav>
+
+    <div class="sidebar-foot-wrap">
+      <div class="account-menu" id="accountMenu" hidden>
+        <div class="account-menu-user">Signed in as <strong id="accountUsername"></strong></div>
+        <button class="account-menu-item" id="logoutBtn">🚪 Log out</button>
+      </div>
+      <button class="sidebar-foot" id="sidebarFootBtn" type="button" aria-haspopup="true" aria-expanded="false">
+        <div class="avatar">👦</div>
+        <div>
+          <div class="who" id="sidebarWho">Arjun</div>
+          <div class="role" id="sidebarRole">Preparing for Nursery</div>
+        </div>
+      </button>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="stage">
+      <div class="crumbs" id="crumbs"></div>
+
+      <!-- HOME -->
+      <section id="screen-home">
+        <div class="hero">
+          <div class="hero-text">
+            <h1 id="homeGreeting">Welcome back! 👋</h1>
+            <p>Ready to practice for the NOF Junior Olympiad? Start a free demo to try real exam-style questions for any grade and subject.</p>
+            <button class="btn btn-primary" id="startDemoBtn">🎯 Try the Olympiad Demo</button>
+          </div>
+          <div class="hero-emoji">🎈</div>
+        </div>
+
+        <div class="stat-row" id="homeStatRow">
+          <button class="stat-tile" data-goto="progress"><div class="n" id="homeStreak">0</div><div class="l">Day streak</div></button>
+          <button class="stat-tile" data-goto="progress"><div class="n" id="homeQCount">0</div><div class="l">Questions tried</div></button>
+          <button class="stat-tile" data-goto="progress"><div class="n" id="homeBadgeCount">0</div><div class="l">Badges earned</div></button>
+        </div>
+        <div class="stat-note">Includes a few example sessions so this isn't empty — anything he tries in the Olympiad Demo counts too. Tap a number to see the full picture in Progress.</div>
+      </section>
+
+      <!-- GRADE SELECT -->
+      <section id="screen-grades" hidden>
+        <div class="page-head">
+          <span class="eyebrow">🎯 Olympiad Demo</span>
+          <h1>Which grade are you preparing for?</h1>
+          <p>Pick a grade to see sample NOF Junior Olympiad questions for that level. Each grade unlocks a different set of subjects.</p>
+        </div>
+        <div class="grid" id="gradeGrid"></div>
+      </section>
+
+      <!-- SUBJECT SELECT -->
+      <section id="screen-subjects" hidden>
+        <div class="back-row"><button class="btn-back" data-back="grades">← Back to grades</button></div>
+        <div class="page-head">
+          <span class="eyebrow" id="subjEyebrow">🎯 Olympiad Demo</span>
+          <h1 id="subjHeading">Choose a subject to try</h1>
+          <p>A few sample questions in the style of the real NOF Junior exam — pick any subject to begin.</p>
+        </div>
+        <div class="grid" id="subjectGrid"></div>
+      </section>
+
+      <!-- DEMO / QUESTIONS -->
+      <section id="screen-demo" hidden>
+        <div class="back-row"><button class="btn-back" data-back="subjects">← Back to subjects</button></div>
+
+        <div id="demoActive">
+          <div class="demo-head">
+            <div class="demo-icon" id="demoIcon"></div>
+            <div>
+              <h1 id="demoTitle"></h1>
+              <div class="ctx" id="demoCtx"></div>
+            </div>
+          </div>
+
+          <div class="progress-row">
+            <div class="dots" id="dots"></div>
+            <span class="progress-note" id="progressNote"></span>
+          </div>
+
+          <div class="timer-wrap" id="timerWrap" hidden>
+            <div class="timer-track"><div class="timer-fill" id="timerFill"></div></div>
+            <div class="timer-label" id="timerLabel"></div>
+          </div>
+
+          <div class="q-card">
+            <div class="q-text" id="qText"></div>
+            <div class="q-body">
+              <div class="options" id="qOptions"></div>
+              <div class="q-art-box"><div class="q-art" id="qArt"></div></div>
+            </div>
+            <div class="feedback" id="qFeedback"></div>
+            <div class="q-foot">
+              <span class="progress-note" id="qFooterNote"></span>
+              <button class="btn btn-primary" id="nextBtn" disabled>Next question →</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="demoComplete" hidden>
+          <div class="complete-card">
+            <div class="complete-emoji">🎉</div>
+            <h2>Great job, Champ!</h2>
+            <p id="completeSummary"></p>
+            <div class="score" id="completeScore"></div>
+            <div class="complete-actions">
+              <button class="btn btn-primary" id="tryAnotherBtn">Try another subject</button>
+              <button class="btn btn-ghost" id="changeGradeBtn">Choose a different grade</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="demoEmpty" hidden>
+          <div class="complete-card">
+            <div class="complete-emoji">🚧</div>
+            <h2 id="demoEmptyTitle">Questions coming soon</h2>
+            <p id="demoEmptySummary"></p>
+            <div class="complete-actions">
+              <button class="btn btn-ghost" id="emptyBackBtn">← Back to subjects</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROGRESS -->
+      <section id="screen-progress" hidden>
+        <div class="page-head">
+          <span class="eyebrow">📈 Progress</span>
+          <h1 id="progressName">Progress</h1>
+          <p>A look back at practice so far — this doesn't add new questions, it just reflects what happened in the Olympiad Demo. A few example sessions are included below so the layout isn't empty; anything tried today is added on top, live.</p>
+        </div>
+
+        <div class="stat-row" id="progressSummary"></div>
+
+        <div class="section-title">By subject</div>
+        <div class="subject-progress-list" id="subjectProgressList"></div>
+
+        <div class="section-title">Recent activity</div>
+        <div class="activity-list" id="activityList"></div>
+
+        <div class="section-title">Badges</div>
+        <div class="badge-grid" id="badgeGrid"></div>
+      </section>
+
+      <!-- SETTINGS -->
+      <section id="screen-settings" hidden>
+        <div class="page-head">
+          <span class="eyebrow">⚙️ Settings</span>
+          <h1>Practice settings</h1>
+          <p>A few small controls for how practice sessions run.</p>
+        </div>
+
+        <div class="settings-card">
+          <h3>Child profile</h3>
+          <div class="hint">Used for the greeting and the sidebar — no login involved.</div>
+          <div class="field">
+            <label for="childNameInput">Name</label>
+            <input type="text" id="childNameInput" maxlength="24" />
+          </div>
+          <div class="field">
+            <label for="defaultGradeSelect">Usual grade</label>
+            <select id="defaultGradeSelect"></select>
+          </div>
+        </div>
+
+        <div class="settings-card">
+          <h3>Practice preferences</h3>
+          <div class="hint">Controls how each Olympiad Demo round runs.</div>
+          <div class="field">
+            <label>Questions per session</label>
+            <div class="segmented" id="qCountSegmented"></div>
+          </div>
+          <div class="switch-row">
+            <div>
+              <div class="label-main">Timed mode</div>
+              <div class="label-sub">Adds a countdown per question, closer to the real exam</div>
+            </div>
+            <button class="switch" id="timerSwitch" aria-pressed="false"></button>
+          </div>
+        </div>
+
+        <div class="settings-card">
+          <h3>Data</h3>
+          <div class="hint">Progress is saved to your account.</div>
+          <button class="btn btn-danger" id="resetProgressBtn">Reset saved progress</button>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+  // ---------------------------------------------------------------------
+  // All content (grades, subjects, questions) and all progress now live in
+  // the Spring Boot backend + PostgreSQL, not in this file. This script's
+  // job is just to fetch it and render it. See /api/grades, /api/grades/
+  // {id}/subjects, /api/subjects/{id}/questions, /api/attempts, /api/progress.
+  // ---------------------------------------------------------------------
+
+  const state = {
+    screen:'home', grade:null, subject:null, qList:[], qIndex:0, score:0, locked:false,
+    grades:[], allSubjects:[], subjects:[], questionCounts:{},
+    currentUser:null,
+    settings:{ childName:'', defaultGrade:'nursery', questionsPerSession:3, timerMode:false },
+  };
+
+  const $ = (sel, root=document) => root.querySelector(sel);
+  const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
+
+  /** Thin fetch wrapper: throws a friendly Error on network failure or non-2xx. */
+  async function api(path, options){
+    let res;
+    try{
+      res = await fetch(path, options);
+    } catch(err){
+      throw new Error('Could not reach the backend. Make sure the Spring Boot app is running on localhost:8080.');
+    }
+    if(res.status === 401 && path !== '/api/auth/login' && path !== '/api/auth/register'){
+      showAuthScreen();
+      throw new Error('Please sign in again.');
+    }
+    if(!res.ok){
+      let detail = '';
+      try{ detail = await res.text(); } catch(e){}
+      throw new Error(`Server error ${res.status} on ${path}${detail ? ' — ' + detail : ''}`);
+    }
+    if(res.status === 204) return null;
+    return res.json();
+  }
+
+  /** Wraps an async event handler so a failed request shows a toast instead of dying silently. */
+  function safe(fn){
+    return async (...args) => {
+      try{ await fn(...args); }
+      catch(err){
+        console.error(err);
+        showToast('⚠️ ' + err.message);
+      }
+    };
+  }
+
+  /** Fisher-Yates - returns a new array, doesn't mutate the input, so each demo run gets a fresh order. */
+  function shuffled(list){
+    const arr = list.slice();
+    for(let i = arr.length - 1; i > 0; i--){
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  }
+
+  const screens = {
+    home: $('#screen-home'),
+    grades: $('#screen-grades'),
+    subjects: $('#screen-subjects'),
+    demo: $('#screen-demo'),
+    progress: $('#screen-progress'),
+    settings: $('#screen-settings'),
+  };
+
+  let timerHandle = null;
+  const TIMER_MS = 15000;
+  function clearQuestionTimer(){
+    if(timerHandle){ clearInterval(timerHandle); timerHandle = null; }
+  }
+
+  function showScreen(name){
+    clearQuestionTimer();
+    state.screen = name;
+    Object.entries(screens).forEach(([k,el]) => { el.hidden = (k !== name); });
+    const group = (name==='grades'||name==='subjects'||name==='demo') ? 'demo' : name;
+    $$('.nav-item[data-nav]').forEach(btn=>{
+      btn.classList.toggle('active', btn.dataset.nav === group);
+    });
+    if(name === 'home') safe(renderHomeStats)();
+    renderCrumbs();
+    window.scrollTo({top:0, behavior:'instant' in window ? 'instant' : 'auto'});
+  }
+
+  function renderCrumbs(){
+    const c = $('#crumbs');
+    c.innerHTML = '';
+    if(state.screen === 'home') return;
+
+    const parts = [{label:'Home', click: () => showScreen('home')}];
+    if(state.screen === 'progress'){
+      parts.push({label:'Progress', click:null});
+    } else if(state.screen === 'settings'){
+      parts.push({label:'Settings', click:null});
+    } else {
+      parts.push({label:'Olympiad Demo', click: () => { renderGrades(); showScreen('grades'); }});
+      if(state.grade && (state.screen==='subjects' || state.screen==='demo')){
+        parts.push({label:state.grade.name, click: () => { renderSubjects(); showScreen('subjects'); }});
+      }
+      if(state.subject && state.screen==='demo'){
+        parts.push({label:state.subject.name, click:null});
+      }
+    }
+
+    parts.forEach((p,i)=>{
+      if(i>0){
+        const sep = document.createElement('span');
+        sep.className='sep'; sep.textContent='›';
+        c.appendChild(sep);
+      }
+      if(i === parts.length-1){
+        const s = document.createElement('span');
+        s.className='current'; s.textContent=p.label;
+        c.appendChild(s);
+      } else {
+        const b = document.createElement('button');
+        b.textContent = p.label;
+        if(p.click) b.addEventListener('click', p.click);
+        c.appendChild(b);
+      }
+    });
+  }
+
+  function updateProfileUI(){
+    const grade = state.grades.find(g => g.key === state.settings.defaultGrade);
+    $('#sidebarWho').textContent = state.settings.childName || 'Champ';
+    $('#sidebarRole').textContent = grade ? `Preparing for ${grade.name}` : 'Getting started';
+    $('#homeGreeting').textContent = `Welcome back, ${state.settings.childName || 'Champ'}! 👋`;
+  }
+
+  async function renderHomeStats(){
+    const data = await api('/api/progress');
+    $('#homeStreak').textContent = data.streakDays;
+    $('#homeQCount').textContent = data.totalQuestions;
+    $('#homeBadgeCount').textContent = data.badges.filter(b=>b.earned).length;
+  }
+
+  /* ---------- grades / subjects / demo ---------- */
+  function renderGrades(){
+    const grid = $('#gradeGrid');
+    grid.innerHTML = '';
+    state.grades.forEach(g=>{
+      const isDefault = g.key === state.settings.defaultGrade;
+      const subjectCount = state.allSubjects.filter(s => s.gradeId === g.id).length;
+      const card = document.createElement('button');
+      card.className = 'grade-card';
+      card.innerHTML = `
+        ${isDefault ? `<span class="grade-badge">Usual grade</span>` : ''}
+        <div class="grade-glyph">${g.name.slice(0,2).toUpperCase()}</div>
+        <h3>${g.name}</h3>
+        <div class="age">${g.ageRange || ''}</div>
+        <div class="sub-count">${subjectCount} demo subject${subjectCount===1?'':'s'}</div>
+      `;
+      card.addEventListener('click', () => selectGrade(g.id));
+      grid.appendChild(card);
+    });
+  }
+
+  function selectGrade(gradeId){
+    state.grade = state.grades.find(g=>g.id===gradeId);
+    state.subjects = state.allSubjects.filter(s => s.gradeId === gradeId);
+    renderSubjects();
+    showScreen('subjects');
+  }
+
+  function renderSubjects(){
+    $('#subjHeading').textContent = `Choose a subject — ${state.grade.name}`;
+    const grid = $('#subjectGrid');
+    grid.innerHTML = '';
+    state.subjects.forEach(s=>{
+      const total = state.questionCounts[s.id] || 0;
+      const n = Math.min(state.settings.questionsPerSession, total);
+      const card = document.createElement('button');
+      card.className = 'subject-card';
+      card.style.setProperty('--card-color', s.color);
+      card.innerHTML = `
+        <div class="subject-icon">${s.icon}</div>
+        <div>
+          <h3>${s.name}</h3>
+          <p>${s.description}</p>
+        </div>
+        <div class="subject-foot">
+          <span class="tag">${n > 0 ? n + ' sample Qs' : 'Coming soon'}</span>
+          <span class="go">Start →</span>
+        </div>
+      `;
+      card.addEventListener('click', safe(() => selectSubject(s.id)));
+      grid.appendChild(card);
+    });
+  }
+
+  async function selectSubject(subjectId){
+    const s = state.subjects.find(x => x.id === subjectId);
+    state.subject = s;
+    state.qIndex = 0;
+    state.score = 0;
+    document.documentElement.style.setProperty('--card-color', s.color);
+
+    // English draws a fresh random 10 out of its whole question bank each time, rather than
+    // always shuffling the same first N the backend would otherwise truncate to.
+    const ENGLISH_SESSION_SIZE = 10;
+    const fetchLimit = s.key === 'english' ? undefined : state.settings.questionsPerSession;
+    const path = `/api/subjects/${subjectId}/questions` + (fetchLimit != null ? `?limit=${fetchLimit}` : '');
+    let qList = shuffled(await api(path));
+    if(s.key === 'english') qList = qList.slice(0, ENGLISH_SESSION_SIZE);
+    state.qList = qList;
+
+    if(state.qList.length === 0){
+      $('#demoActive').hidden = true;
+      $('#demoComplete').hidden = true;
+      $('#demoEmpty').hidden = false;
+      $('#demoEmptyTitle').textContent = `${s.name} — questions coming soon`;
+      $('#demoEmptySummary').textContent = `We haven't added sample ${s.name} questions for ${state.grade.name} yet. Check back once they're in.`;
+      showScreen('demo');
+      return;
+    }
+
+    $('#demoActive').hidden = false;
+    $('#demoComplete').hidden = true;
+    $('#demoEmpty').hidden = true;
+    $('#demoIcon').textContent = s.icon;
+    $('#demoTitle').textContent = s.name;
+    $('#demoCtx').textContent = `${state.grade.name} preview • ${state.qList.length} questions`;
+    renderQuestion();
+    showScreen('demo');
+  }
+
+  function renderQuestion(){
+    const s = state.subject;
+    const list = state.qList;
+    const q = list[state.qIndex];
+    state.locked = false;
+
+    const art = q.art || '';
+    $('#qArt').textContent = art;
+    $('#qArt').className = 'q-art' + (art.length > 5 ? ' small' : art.length > 2 ? ' mid' : '');
+    $('.q-art-box').hidden = !art;
+    $('#qText').textContent = q.questionText;
+    const opts = $('#qOptions');
+    opts.innerHTML = '';
+    q.options.forEach((opt, i)=>{
+      const b = document.createElement('button');
+      b.className = 'option';
+      b.style.setProperty('--card-color', s.color);
+      b.innerHTML = `<span class="num">${i+1}</span><span class="label">${opt}</span><span class="mark">✓</span>`;
+      b.addEventListener('click', () => selectAnswer(i));
+      opts.appendChild(b);
+    });
+    $('#qFeedback').textContent = '';
+    $('#qFeedback').className = 'feedback';
+    $('#nextBtn').disabled = true;
+    $('#nextBtn').textContent = state.qIndex === list.length-1 ? 'See results →' : 'Next question →';
+    $('#qFooterNote').textContent = state.settings.timerMode
+      ? 'Timed practice — answer before the bar runs out.'
+      : 'Untimed practice — take your time.';
+
+    const dots = $('#dots');
+    dots.innerHTML = '';
+    list.forEach((_,i)=>{
+      const d = document.createElement('span');
+      d.className = 'dot' + (i < state.qIndex ? ' filled' : i===state.qIndex ? ' current' : '');
+      dots.appendChild(d);
+    });
+    $('#progressNote').textContent = `Question ${state.qIndex+1} of ${list.length}`;
+
+    startQuestionTimer();
+  }
+
+  function startQuestionTimer(){
+    clearQuestionTimer();
+    const wrap = $('#timerWrap');
+    if(!state.settings.timerMode){ wrap.hidden = true; return; }
+    wrap.hidden = false;
+    const fill = $('#timerFill');
+    const label = $('#timerLabel');
+    const start = Date.now();
+    fill.style.width = '100%';
+    label.textContent = Math.ceil(TIMER_MS/1000) + 's';
+    timerHandle = setInterval(()=>{
+      const remaining = Math.max(0, TIMER_MS - (Date.now()-start));
+      fill.style.width = (remaining/TIMER_MS*100) + '%';
+      label.textContent = Math.ceil(remaining/1000) + 's';
+      if(remaining <= 0){
+        clearQuestionTimer();
+        handleTimeUp();
+      }
+    }, 100);
+  }
+
+  function handleTimeUp(){
+    if(state.locked) return;
+    state.locked = true;
+    const q = state.qList[state.qIndex];
+    $$('#qOptions .option').forEach((el, idx)=>{
+      el.classList.add('locked');
+      if(idx === q.correctIndex) el.classList.add('correct');
+    });
+    const fb = $('#qFeedback');
+    fb.textContent = `⏰ Time's up! The right answer was "${q.options[q.correctIndex]}".`;
+    fb.className = 'feedback bad';
+    $('#nextBtn').disabled = false;
+  }
+
+  function selectAnswer(i){
+    if(state.locked) return;
+    state.locked = true;
+    clearQuestionTimer();
+    const q = state.qList[state.qIndex];
+    const opts = $$('#qOptions .option');
+    opts.forEach((el, idx)=>{
+      el.classList.add('locked');
+      if(idx === q.correctIndex) el.classList.add('correct');
+      else if(idx === i) el.classList.add('wrong');
+    });
+    const fb = $('#qFeedback');
+    if(i === q.correctIndex){
+      state.score++;
+      fb.textContent = 'Correct! Well done. 🌟';
+      fb.className = 'feedback good';
+    } else {
+      fb.textContent = `Good try! The right answer is "${q.options[q.correctIndex]}".`;
+      fb.className = 'feedback bad';
+    }
+    $('#nextBtn').disabled = false;
+  }
+
+  async function nextQuestion(){
+    if(state.qIndex < state.qList.length - 1){
+      state.qIndex++;
+      renderQuestion();
+    } else {
+      await finishDemo();
+    }
+  }
+
+  async function finishDemo(){
+    clearQuestionTimer();
+    $('#demoActive').hidden = true;
+    $('#demoComplete').hidden = false;
+    const list = state.qList;
+    $('#completeSummary').textContent = `You tried ${list.length} sample ${state.subject.name} questions for ${state.grade.name}.`;
+    $('#completeScore').textContent = `Score: ${state.score} / ${list.length}`;
+
+    await api('/api/attempts', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        gradeId: state.grade.id,
+        subjectId: state.subject.id,
+        correct: state.score,
+        total: list.length,
+      }),
+    });
+  }
+
+  /* ---------- progress ---------- */
+  // The server computes everything (streak, accuracy, badges) from the
+  // attempts table - this just renders whatever it returns.
+  async function renderProgress(){
+    const data = await api('/api/progress');
+    $('#progressName').textContent = `${state.settings.childName || 'Champ'}'s Progress`;
+
+    $('#progressSummary').innerHTML = `
+      <div class="stat-tile"><div class="n">${data.streakDays}</div><div class="l">Day streak 🔥</div></div>
+      <div class="stat-tile"><div class="n">${data.totalQuestions}</div><div class="l">Questions tried</div></div>
+      <div class="stat-tile"><div class="n">${data.accuracyPercent}%</div><div class="l">Overall accuracy</div></div>
+    `;
+
+    const bySubjectId = new Map(data.bySubject.map(sp => [sp.subjectId, sp]));
+    const list = $('#subjectProgressList');
+    list.innerHTML = '';
+    state.allSubjects.forEach(s=>{
+      const d = bySubjectId.get(s.id);
+      const row = document.createElement('div');
+      row.className = 'subject-progress-row';
+      row.style.setProperty('--card-color', s.color);
+      if(d){
+        row.innerHTML = `
+          <div class="subject-icon">${s.icon}</div>
+          <div class="sp-main">
+            <div class="name-row"><span>${s.name}</span><span class="pct">${d.percent}%</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:${d.percent}%"></div></div>
+            <div class="sp-meta">${d.correct} of ${d.total} correct</div>
+          </div>`;
+      } else {
+        row.innerHTML = `
+          <div class="subject-icon" style="opacity:.5">${s.icon}</div>
+          <div class="sp-main">
+            <div class="name-row"><span>${s.name}</span><span class="sp-empty">Not tried yet</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width:0%"></div></div>
+          </div>`;
+      }
+      list.appendChild(row);
+    });
+
+    const act = $('#activityList');
+    act.innerHTML = '';
+    if(data.recentActivity.length === 0){
+      act.innerHTML = `<div class="empty-note">No practice yet — head to Olympiad Demo to get started!</div>`;
+    } else {
+      data.recentActivity.forEach(h=>{
+        const goodRow = h.correct === h.total;
+        const badRow = (h.correct/h.total) < 0.5;
+        const row = document.createElement('div');
+        row.className = 'activity-row';
+        row.style.setProperty('--card-color', h.color);
+        row.innerHTML = `
+          <div class="a-icon">${h.icon}</div>
+          <div class="a-main">
+            <div class="a-title">${h.subjectName}</div>
+            <div class="a-sub">${h.gradeName}</div>
+          </div>
+          <div class="a-score ${goodRow?'good':(badRow?'bad':'')}">${h.correct}/${h.total}</div>
+          <div class="a-time">${h.attemptedAt}</div>
+        `;
+        act.appendChild(row);
+      });
+    }
+
+    const bg = $('#badgeGrid');
+    bg.innerHTML = '';
+    data.badges.forEach(b=>{
+      const t = document.createElement('div');
+      t.className = 'badge-tile ' + (b.earned ? 'earned' : 'locked');
+      t.innerHTML = `<div class="b-icon">${b.icon}</div><div class="b-name">${b.name}</div><div class="b-status">${b.earned ? 'Earned' : 'Locked'}</div>`;
+      bg.appendChild(t);
+    });
+  }
+
+  /* ---------- settings ---------- */
+  function renderSettings(){
+    $('#childNameInput').value = state.settings.childName;
+
+    const sel = $('#defaultGradeSelect');
+    sel.innerHTML = state.grades.map(g => `<option value="${g.key}">${g.name} (${g.ageRange || ''})</option>`).join('');
+    sel.value = state.settings.defaultGrade;
+
+    const seg = $('#qCountSegmented');
+    seg.innerHTML = '';
+    [2,3,5].forEach(n=>{
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.textContent = n;
+      b.className = state.settings.questionsPerSession === n ? 'active' : '';
+      b.addEventListener('click', () => { state.settings.questionsPerSession = n; renderSettings(); });
+      seg.appendChild(b);
+    });
+
+    const sw = $('#timerSwitch');
+    sw.classList.toggle('on', state.settings.timerMode);
+    sw.setAttribute('aria-pressed', String(state.settings.timerMode));
+  }
+
+  function showToast(msg){
+    const t = $('#toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(showToast._t);
+    showToast._t = setTimeout(()=> t.classList.remove('show'), 2200);
+  }
+
+  /* ---------- auth ---------- */
+  let authMode = 'login';
+  const USERNAME_RE = /^[A-Za-z0-9_.-]{3,24}$/;
+  const PASSWORD_RE = /^\S{4,12}$/;
+
+  function showAuthScreen(){
+    state.currentUser = null;
+    $('#appRoot').hidden = true;
+    $('#authScreen').hidden = false;
+    $('#authError').hidden = true;
+    $('#authForm').reset();
+  }
+
+  function showApp(){
+    $('#authScreen').hidden = true;
+    $('#appRoot').hidden = false;
+  }
+
+  function setAuthMode(mode){
+    authMode = mode;
+    $$('#authModeSwitch button').forEach(b => b.classList.toggle('active', b.dataset.mode === mode));
+    $('#authSubmitBtn').textContent = mode === 'login' ? 'Sign in' : 'Create account';
+    $('#authPassword').setAttribute('autocomplete', mode === 'login' ? 'current-password' : 'new-password');
+    $('#authError').hidden = true;
+  }
+
+  $$('#authModeSwitch button').forEach(btn=>{
+    btn.addEventListener('click', () => setAuthMode(btn.dataset.mode));
+  });
+
+  function showAuthError(msg){
+    const box = $('#authError');
+    box.textContent = msg;
+    box.hidden = false;
+  }
+
+  $('#authForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const username = $('#authUsername').value.trim();
+    const password = $('#authPassword').value;
+    $('#authError').hidden = true;
+
+    if(!USERNAME_RE.test(username)){
+      showAuthError('Username must be 3–24 characters: letters, numbers, . _ or -');
+      return;
+    }
+    if(!PASSWORD_RE.test(password)){
+      showAuthError('Password must be 4–12 characters, no spaces.');
+      return;
+    }
+
+    const btn = $('#authSubmitBtn');
+    btn.disabled = true;
+    try{
+      const path = authMode === 'login' ? '/api/auth/login' : '/api/auth/register';
+      const res = await fetch(path, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({username, password}),
+      });
+      if(!res.ok){
+        let msg = authMode === 'login' ? 'Incorrect username or password.' : 'Could not create that account.';
+        try{
+          const body = await res.json();
+          if(body && body.message) msg = body.message;
+        } catch(e){}
+        showAuthError(msg);
+        return;
+      }
+      const user = await res.json();
+      await onSignedIn(user);
+    } catch(err){
+      showAuthError('Could not reach the backend. Make sure the Spring Boot app is running on localhost:8080.');
+    } finally {
+      btn.disabled = false;
+    }
+  });
+
+  function closeAccountMenu(){
+    $('#accountMenu').hidden = true;
+    $('#sidebarFootBtn').setAttribute('aria-expanded', 'false');
+  }
+  function toggleAccountMenu(){
+    const open = $('#accountMenu').hidden;
+    $('#accountMenu').hidden = !open;
+    $('#sidebarFootBtn').setAttribute('aria-expanded', String(open));
+  }
+  $('#sidebarFootBtn').addEventListener('click', (e) => {
+    e.stopPropagation();
+    toggleAccountMenu();
+  });
+  document.addEventListener('click', (e) => {
+    if(!$('#accountMenu').hidden && !$('.sidebar-foot-wrap').contains(e.target)) closeAccountMenu();
+  });
+  document.addEventListener('keydown', (e) => {
+    if(e.key === 'Escape') closeAccountMenu();
+  });
+
+  $('#logoutBtn').addEventListener('click', safe(async () => {
+    closeAccountMenu();
+    await fetch('/api/auth/logout', {method: 'POST'});
+    showToast('Signed out 👋');
+    showAuthScreen();
+  }));
+
+  async function onSignedIn(user){
+    state.currentUser = user;
+    if(!state.settings.childName){
+      state.settings.childName = user.username.charAt(0).toUpperCase() + user.username.slice(1);
+    }
+    $('#accountUsername').textContent = user.username;
+    showApp();
+    await init();
+  }
+
+  /** Checks for an existing session; shows the auth screen or the app accordingly. */
+  async function boot(){
+    try{
+      const res = await fetch('/api/auth/me');
+      if(res.ok){
+        await onSignedIn(await res.json());
+        return;
+      }
+    } catch(err){
+      console.error(err);
+    }
+    showAuthScreen();
+  }
+
+  /* ---------- sidebar collapse ---------- */
+  const SIDEBAR_HIDDEN_KEY = 'st-sidebar-hidden';
+
+  function setSidebarHidden(hidden){
+    $('#sidebar').hidden = hidden;
+    $('#sidebarReopenBtn').hidden = !hidden;
+    try{ localStorage.setItem(SIDEBAR_HIDDEN_KEY, hidden ? '1' : '0'); } catch(e){}
+  }
+
+  $('#sidebarCollapseBtn').addEventListener('click', () => setSidebarHidden(true));
+  $('#sidebarReopenBtn').addEventListener('click', () => setSidebarHidden(false));
+
+  (function initSidebarState(){
+    let hidden = false;
+    try{ hidden = localStorage.getItem(SIDEBAR_HIDDEN_KEY) === '1'; } catch(e){}
+    setSidebarHidden(hidden);
+  })();
+
+  /* ---------- navigation entry points ---------- */
+  $$('.nav-item[data-nav]').forEach(btn=>{
+    btn.addEventListener('click', safe(async () => {
+      const target = btn.dataset.nav;
+      if(target === 'home') showScreen('home');
+      if(target === 'demo'){ renderGrades(); showScreen('grades'); }
+      if(target === 'progress'){ await renderProgress(); showScreen('progress'); }
+      if(target === 'settings'){ renderSettings(); showScreen('settings'); }
+    }));
+  });
+
+  $$('#homeStatRow [data-goto]').forEach(btn=>{
+    btn.addEventListener('click', safe(async () => { await renderProgress(); showScreen('progress'); }));
+  });
+
+  $('#startDemoBtn').addEventListener('click', () => { renderGrades(); showScreen('grades'); });
+
+  $$('[data-back]').forEach(btn=>{
+    btn.addEventListener('click', () => {
+      const target = btn.dataset.back;
+      if(target === 'grades') renderGrades();
+      if(target === 'subjects') renderSubjects();
+      showScreen(target);
+    });
+  });
+
+  $('#nextBtn').addEventListener('click', safe(nextQuestion));
+  $('#tryAnotherBtn').addEventListener('click', () => { renderSubjects(); showScreen('subjects'); });
+  $('#changeGradeBtn').addEventListener('click', () => { renderGrades(); showScreen('grades'); });
+  $('#emptyBackBtn').addEventListener('click', () => { renderSubjects(); showScreen('subjects'); });
+
+  $('#childNameInput').addEventListener('input', (e)=>{
+    state.settings.childName = e.target.value.trim() || 'Champ';
+    updateProfileUI();
+  });
+  $('#defaultGradeSelect').addEventListener('change', (e)=>{
+    state.settings.defaultGrade = e.target.value;
+    updateProfileUI();
+  });
+  $('#timerSwitch').addEventListener('click', () => {
+    state.settings.timerMode = !state.settings.timerMode;
+    renderSettings();
+  });
+  $('#resetProgressBtn').addEventListener('click', safe(async () => {
+    await api('/api/attempts', {method:'DELETE'});
+    showToast('Progress reset 🧹');
+    if(state.screen === 'progress') await renderProgress();
+    await renderHomeStats();
+  }));
+
+  /** Loads grades + subjects + question counts once, then renders the Home screen. */
+  async function init(){
+    try {
+      state.grades = await api('/api/grades');
+      state.allSubjects = [];
+      for(const g of state.grades){
+        const subs = await api(`/api/grades/${g.id}/subjects`);
+        state.allSubjects.push(...subs);
+      }
+      state.questionCounts = {};
+      for(const s of state.allSubjects){
+        const c = await api(`/api/subjects/${s.id}/questions/count`);
+        state.questionCounts[s.id] = c.count;
+      }
+    } catch(err){
+      console.error(err);
+      const banner = document.createElement('div');
+      banner.style.cssText = 'background:var(--bad);color:#fff;padding:12px 16px;border-radius:12px;margin-bottom:16px;font-weight:700;font-size:13px;';
+      banner.textContent = '⚠️ ' + err.message;
+      $('.stage').prepend(banner);
+      return;
+    }
+
+    if(!state.grades.some(g => g.key === state.settings.defaultGrade) && state.grades[0]){
+      state.settings.defaultGrade = state.grades[0].key;
+    }
+    updateProfileUI();
+    await safe(renderHomeStats)();
+    renderCrumbs();
+  }
+
+  boot();
+})();
+</script>
