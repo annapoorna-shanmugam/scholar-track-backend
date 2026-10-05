@@ -1,0 +1,34 @@
+services:
+  db:
+    image: postgres:16
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: scholartrack
+      POSTGRES_USER: scholartrack
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-scholartrack}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U scholartrack"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    # Not published to the host - only the app container can reach it,
+    # over the compose network. Nothing database-related is ever exposed
+    # to the internet.
+
+  app:
+    build: .
+    restart: unless-stopped
+    environment:
+      DB_URL: jdbc:postgresql://db:5432/scholartrack
+      DB_USERNAME: scholartrack
+      DB_PASSWORD: ${DB_PASSWORD:-scholartrack}
+    ports:
+      - "80:8080"
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  pgdata:
