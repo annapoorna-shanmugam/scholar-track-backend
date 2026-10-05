@@ -1,0 +1,7 @@
+target/
+.git/
+.metadata/
+.vscode/
+.claude/
+.DS_Store
+*.md
