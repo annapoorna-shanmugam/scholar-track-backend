@@ -19,6 +19,7 @@ services:
 
   app:
     build: .
+    image: scholar-track-backend-app:latest
     restart: unless-stopped
     environment:
       DB_URL: jdbc:postgresql://db:5432/scholartrack
